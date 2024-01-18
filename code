@@ -1,0 +1,21 @@
+import sys
+
+def read_barcode():
+    print("Please scan the barcode:")
+    barcode_data = ""
+    try:
+        while True:
+            char = sys.stdin.read(1)
+            if char == '\n':
+                break
+            else:
+                barcode_data += char
+    except KeyboardInterrupt:
+        pass
+    return barcode_data.strip()
+
+# Read barcode from the physical barcode reader
+barcode_data = read_barcode()
+
+# Display the entire barcode data
+print("Barcode Data:", barcode_data)
